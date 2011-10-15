@@ -13,10 +13,9 @@ namespace ParallelBenchmark.Tests
         
         public long RunTest()
         {
-            var action = Runner;
             var stopwatch = new Stopwatch();
             stopwatch.Start();
-            action();
+            Runner();
             stopwatch.Stop();
             return stopwatch.ElapsedMilliseconds;
         }

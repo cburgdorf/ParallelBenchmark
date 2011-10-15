@@ -30,22 +30,28 @@ namespace ParallelBenchmark.Tests
 
                         foreach (var entity in entities)
                         {
-                            entity.Feld2 = DateTime.Now.ToLongTimeString();
+                            //entity.Feld2 = DateTime.Now.ToLongTimeString();
+                            entity.Feld2 = "test-s";
                             entity.Feld3 = DateTime.Now.ToShortDateString();
 
-                            using (var saveContext = new Database())
-                            {
-                                var entity1 = entity;
-                                var original = saveContext.Test2.SingleOrDefault(x => x.Feld1 == entity1.Feld1);
-                                saveContext.Test2.ApplyCurrentValues(entity1);
-                                saveContext.SaveChanges();
-                            }
+                            Update(entity);
                         }
                     }
                         
                 };
             }
             
+        }
+
+        public void Update(Test2 entity)
+        {
+            using (var saveContext = new Database())
+            {
+                var original = saveContext.Test2.SingleOrDefault(x => x.Feld1 == entity.Feld1);
+
+                saveContext.Test2.ApplyCurrentValues(entity);
+                saveContext.SaveChanges();
+            }
         }
     }
 }

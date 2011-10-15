@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DatabaseModel.Store" Alias="Self" Provider="System.Data.SqlServerCe.3.5" ProviderManifestToken="3.5" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="DatabaseModelStoreContainer">
+          <EntitySet Name="Test" EntityType="DatabaseModel.Store.Test" store:Type="Tables" />
+          <EntitySet Name="Test2" EntityType="DatabaseModel.Store.Test2" store:Type="Tables" />
+        </EntityContainer>
+        <EntityType Name="Test">
+          <Key>
+            <PropertyRef Name="Feld1" />
+          </Key>
+          <Property Name="Feld2" Type="nvarchar" MaxLength="100" />
+          <Property Name="Feld3" Type="nvarchar" MaxLength="100" />
+          <Property Name="Feld1" Type="nvarchar" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Test2">
+          <Key>
+            <PropertyRef Name="Feld1" />
+          </Key>
+          <Property Name="Feld1" Type="int" Nullable="false" />
+          <Property Name="Feld2" Type="nvarchar" MaxLength="100" />
+          <Property Name="Feld3" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DatabaseModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="Database" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Test" EntityType="DatabaseModel.Test" />
+          <EntitySet Name="Test2" EntityType="DatabaseModel.Test2" />
+        </EntityContainer>
+        <EntityType Name="Test">
+          <Key>
+            <PropertyRef Name="Feld1" />
+          </Key>
+          <Property Name="Feld2" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Feld3" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Feld1" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Test2">
+          <Key>
+            <PropertyRef Name="Feld1" />
+          </Key>
+          <Property Name="Feld1" Type="Int32" Nullable="false" />
+          <Property Name="Feld2" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Feld3" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DatabaseModelStoreContainer" CdmEntityContainer="Database">
+          <EntitySetMapping Name="Test"><EntityTypeMapping TypeName="DatabaseModel.Test"><MappingFragment StoreEntitySet="Test">
+            <ScalarProperty Name="Feld2" ColumnName="Feld2" />
+            <ScalarProperty Name="Feld3" ColumnName="Feld3" />
+            <ScalarProperty Name="Feld1" ColumnName="Feld1" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Test2"><EntityTypeMapping TypeName="DatabaseModel.Test2"><MappingFragment StoreEntitySet="Test2">
+            <ScalarProperty Name="Feld1" ColumnName="Feld1" />
+            <ScalarProperty Name="Feld2" ColumnName="Feld2" />
+            <ScalarProperty Name="Feld3" ColumnName="Feld3" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Model1">
+        <EntityTypeShape EntityType="DatabaseModel.Test" Width="1.5" PointX="0.75" PointY="0.75" Height="1.59568359375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatabaseModel.Test2" Width="1.5" PointX="2.75" PointY="0.75" Height="1.5956835937499996" IsExpanded="true" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

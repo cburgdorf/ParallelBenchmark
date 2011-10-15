@@ -6,7 +6,7 @@ using System.Text;
 
 namespace ParallelBenchmark.Tests
 {
-    public abstract class AbstractPerformanceTest //: IPerformanceTest
+    public abstract class AbstractPerformanceTest
     {
         public abstract string Name { get; }
         public abstract Action Runner { get; }
@@ -21,10 +21,4 @@ namespace ParallelBenchmark.Tests
             return stopwatch.ElapsedMilliseconds;
         }
     }
-
-    //public interface IPerformanceTest
-    //{
-    //    string Name { get; }
-    //    long RunTest();
-    //}
 }

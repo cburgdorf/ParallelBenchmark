@@ -15,7 +15,6 @@ namespace ParallelBenchmark
         static void Main(string[] args)
         {
             ITestRunner[] testRunners = {
-                                            //new TestRunner<TwoTablesSequentialWriteTest>(1)
                                             new TestRunner<TwoTablesParallelLoadTest>(10),
                                             new TestRunner<TwoTablesSequentialLoadTest>(10)
                                         };

@@ -15,8 +15,10 @@ namespace ParallelBenchmark
         static void Main(string[] args)
         {
             ITestRunner[] testRunners = {
-                                            new TestRunner<TwoTablesParallelLoadTest>(10),
-                                            new TestRunner<TwoTablesSequentialLoadTest>(10)
+                                            new TestRunner<TwoTablesParallelWriteTest>(1),
+                                            new TestRunner<TwoTablesSequentialWriteTest>(1)
+                                            //new TestRunner<TwoTablesParallelLoadTest>(10),
+                                            //new TestRunner<TwoTablesSequentialLoadTest>(10)
                                         };
 
             testRunners.ToList().ForEach(x => x.RunTests());

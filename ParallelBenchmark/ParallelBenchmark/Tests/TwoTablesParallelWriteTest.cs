@@ -24,15 +24,9 @@ namespace ParallelBenchmark.Tests
             {
                 return () =>
                 {
-                    //we create two contexts even if one would be enough
-                    //thats because we need two contextes for the *parallel*
-                    //version and we don't want to have this affect the results
-
                     using (var context = new Database())
                     {
                         var entities = context.Test2.ToList();
-
-
 
                         Parallel.ForEach(entities, entity =>
                         {

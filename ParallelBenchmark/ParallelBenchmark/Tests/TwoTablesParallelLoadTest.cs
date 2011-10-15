@@ -20,6 +20,9 @@ namespace ParallelBenchmark.Tests
             get {
                 return () =>
                            {
+                               //we need to contexts because the context is not thread safe
+                               //and throws funny erros otherwise
+
                                Parallel.Invoke(
                                        () =>
                                        {
